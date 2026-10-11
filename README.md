@@ -4,6 +4,8 @@ A license compliance gate for dependency manifests: unknown, undeclared, or deny
 
 **Confidence: High (85%)** that allowlist/denylist/matrix gating catches the license mistakes that actually ship (undeclared licenses, sneaky AGPL, weak-copyleft surprises); **Medium (65%)** that the built-in baseline lists match your legal posture without tuning [estimated].
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 License compliance is usually a release-eve spreadsheet ritual: someone exports dependencies, squints at 200 licenses, and misses the one package that quietly changed to AGPL. The failure mode is predictable — *undeclared* licenses (the field is empty, so nobody notices) and *unknown* licenses (some custom text) slip through human review. Projects like Zed (as of 2026-10-11) solved this by making incomplete license data a hard CI failure via cargo-about; this tool brings the same gate to plain JSON manifests with zero dependencies.
